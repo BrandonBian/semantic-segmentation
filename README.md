@@ -22,6 +22,9 @@
 
 </div>
 
+## <div align="center">Preparing for SegFormer</div> 
+- Data (`ADE20K`): http://sceneparsing.csail.mit.edu/
+- Backbone (`mit_b2.pth`): should be in root directory
 
 ## <div align="center">Model Zoo</div>
 
