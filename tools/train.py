@@ -25,7 +25,8 @@ from val import evaluate
 def main(cfg, gpu, save_dir):
     start = time.time()
     best_mIoU = 0.0
-    num_workers = cfg['TRAIN']['WORKERS']
+    num_workers = max(4, mp.cpu_count() - 2)
+    print("Number of workers:", num_workers)
     device = torch.device(cfg['DEVICE'])
     train_cfg, eval_cfg = cfg['TRAIN'], cfg['EVAL']
     dataset_cfg, model_cfg = cfg['DATASET'], cfg['MODEL']

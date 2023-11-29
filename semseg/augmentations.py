@@ -30,6 +30,12 @@ class Normalize:
     def __call__(self, img: Tensor, mask: Tensor) -> Tuple[Tensor, Tensor]:
         img = img.float()
         img /= 255
+
+        # Grayscale image
+        if img.shape[0] == 1:
+            print("Normalize Warning: grayscale image detected! Skipping normalization")
+            return img, mask
+
         img = TF.normalize(img, self.mean, self.std)
         return img, mask
 
